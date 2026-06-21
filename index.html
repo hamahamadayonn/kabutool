@@ -226,16 +226,19 @@ function load() {
 }
 
 function seedOnce() {
-  if (localStorage.getItem('kabutool_seeded')) return;
-  localStorage.setItem('kabutool_seeded', '1');
+  if (localStorage.getItem('kabutool_seeded_v2')) return;
+  localStorage.setItem('kabutool_seeded_v2', '1');
   const u = () => Date.now().toString(36) + Math.random().toString(36).slice(2);
   S.positions = [
-    { id: u(), name: 'タムロン', code: '7740', account: '個人', entry: 1260, shares: 75, current: 1234, date: '2026-06-19',
-      notes: '中計材料: 売上1,200億・配当51円・自社株買180億。損切り1,159 / 利確①1,386 / 利確②1,449' },
-    { id: u(), name: 'マルマエ', code: '6264', account: 'ゲーム', entry: 2619, shares: 2, current: 2917, date: '2026-06-01',
-      notes: 'ゲーム枠。3,000円台で1株利確予定。' },
-    { id: u(), name: '東電力HD', code: '9501', account: '特定', entry: 844, shares: 0, current: 514, date: '2025-01-01',
-      notes: '含み損-39%。損切り検討中。株数は実際の数で更新すること。' },
+    { id: u(), name: 'システナ',  code: '2317', account: '特定', entry: 429,  shares: 100, current: 395,  date: '2026-06-21', notes: '損切りライン-8%まであと少し(-7.93%)。月曜要確認。' },
+    { id: u(), name: '日本製鉄',  code: '5401', account: '特定', entry: 560,  shares: 100, current: 560,  date: '2026-06-21', notes: 'ほぼ損益なし(-0.04%)。様子見。' },
+    { id: u(), name: 'マルマエ',  code: '6264', account: '特定', entry: 2619, shares: 2,   current: 2917, date: '2026-06-21', notes: '+11.38%。3,000円台で1株利確予定。ゲーム枠扱い。' },
+    { id: u(), name: 'タダノ',    code: '6395', account: 'NISA', entry: 1429, shares: 100, current: 1343, date: '2026-06-21', notes: '-6.02%。NISA=損益通算・損切り節税不可。' },
+    { id: u(), name: '日東工(特定)', code: '6651', account: '特定', entry: 5000, shares: 18, current: 4580, date: '2026-06-21', notes: '-8.40%。損切りライン(-8%)超え。月曜前場成行売り候補。' },
+    { id: u(), name: '日東工(NISA)', code: '6651', account: 'NISA', entry: 4980, shares: 30, current: 4580, date: '2026-06-21', notes: '-8.03%。NISA=損益通算不可。長期保有か判断。' },
+    { id: u(), name: '富士通',    code: '6702', account: '特定', entry: 3362, shares: 34,  current: 3211, date: '2026-06-21', notes: '-4.49%。損切りライン3,093円まで余裕あり。様子見。' },
+    { id: u(), name: 'タムロン',  code: '7740', account: '特定', entry: 1260, shares: 75,  current: 1234, date: '2026-06-19', notes: '-2.06%。中計材料: 売上1,200億・配当51円・自社株買180億。損切り1,159 / 利確①1,386 / 利確②1,449' },
+    { id: u(), name: '東電力HD', code: '9501', account: '特定', entry: 844,  shares: 204, current: 514,  date: '2025-01-01', notes: '-39.10%。2026年3月期最終赤字4,542億円。損切り検討中。' },
   ];
   S.watchlist = [
     { id: u(), name: '東京エネシス', code: '1945', priority: 'high', targetEntry: null,
